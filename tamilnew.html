@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>தமிழ் புத்தாண்டு</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 90%;
+            margin:auto;
+        }
+        .row{
+            display:flex;
+            }
+        img{
+            max-width: 100%;
+        }
+        .img{
+            background-image: linear-gradient(to right,brown,orange,rgb(93, 22, 22));
+        }
+        h1{
+            font-size:35px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: underline;
+         }
+         .one{
+            font-size:35px;
+            }
+        
+         .card{
+            font-size:35px;
+            word-spacing: 5px;
+            padding-top: 50px 0;
+             }
+        .card:hover{
+            color:brown;
+        }
+            /* moblie device */
+
+    @media(min-width:320px){
+        .container{
+            width:100%;
+        }
+        .row{
+            display:flex;
+            flex-wrap: wrap;
+        }
+        .col{
+            width:100%;
+        }
+        .col1{
+            width:100%;
+        }
+
+     }
+     @media(min-width:690px){
+        .container{
+            width:100%;
+        }
+        .row{
+            display:flex;
+            flex-wrap: wrap;
+        }
+        col{
+            width:100%;
+        }
+        .col1{
+            width:100%;
+        }
+    }
+    @media(min-width:1020px){
+        .container{
+            width: 90%;
+            margin:auto;
+        }
+        .row{
+            display:flex;
+            flex-wrap: nowrap;
+            }
+        col{
+            width:50%;
+        }
+        .col1{
+            width:50%;
+        }
+        .card{
+            font-size:35px;
+            text-align: center;
+            padding-top: 50px 0;
+             }
+        .card:hover{
+            color:brown;
+        }
+    }
+    </style>
+</head>
+<body>
+    <section class="img">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="tamil.jpg">
+                </div>
+                <div class="col1">
+                    <h1>தமிழ் புத்தாண்டு  நாள்</h1><br><br><br><br><br>
+                    <span class="card">நாள்--</span>
+                    <span id="waitday" class="one"></span><br><br><br><br>
+                    <span class="card">மணி--</span>    
+                    <span id="waithour" class="one"></span><br><br><br><br>
+                    <span class="card">நிமிடம்கள்--</span>
+                    <span id="waitmin" class="one"></span><br><br><br><br>
+                    <span class="card">வினாடிகள்--</span>
+                    <span id="waitsec" class="one"></span><br><br><br><br>
+                    
+                </div>
+             </div>
+        </div>
+    </section>
+    <script>
+        setInterval(() =>{
+        let result = document.getElementById('waitday');
+        let result1 = document.getElementById('waithour');
+        let result2 = document.getElementById('waitmin');
+        let result3 = document.getElementById('waitsec');
+        let date = new Date('Apr 15, 2023 12:00:00');
+        let counterDate = date.getTime();
+        let current = new Date();
+        let currentDate = current.getTime();
+        let difference = counterDate - currentDate;
+        let days = Math.floor(difference / (1000*60*60*24));
+        let hours = Math.floor((difference % (1000*60*60*24)) / (1000*60*60));
+        let minutes = Math.floor((difference % (1000*60*60)) / (1000*60));
+        let seconds = Math.floor((difference % (1000*60)) / 1000);
+        result.innerText = `${days}`
+        result1.innerText=`${hours}`
+        result2.innerText=`${minutes}` 
+        result3.innerText=`${seconds}`
+        },1000)
+    </script>
+</body>
+</html>
